@@ -1,4 +1,4 @@
-export const results = [
+export const popularMoviesResults = [
   {
     vote_count: 2948,
     id: 299537,
