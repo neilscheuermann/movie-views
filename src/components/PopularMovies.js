@@ -1,13 +1,18 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { fetchPopularMovies } from '../store/popularMovies'
+import { fetchDummyData, fetchPopularMoviesDesc } from '../store/popularMovies'
 import { popularMoviesResults } from '../testMovieData'
 import MovieInfo from './MovieInfo'
 import Loading from './Loading'
 
 class PopularMovies extends Component {
-  componentDidMount() {
-    this.props.fetchPopularMovies(popularMoviesResults)
+  componentDidMount = () => {
+    const { pageNum } = this.props.match.params
+    console.log(pageNum)
+    this.props.fetchPopularMoviesDesc(pageNum)
+
+    // // Fetches dummy data when there's no internet.
+    // this.props.fetchDummyData(popularMoviesResults)
   }
 
   render() {
@@ -33,8 +38,8 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-  fetchPopularMovies: popularMovies =>
-    dispatch(fetchPopularMovies(popularMovies)),
+  fetchDummyData: popularMovies => dispatch(fetchDummyData(popularMovies)),
+  fetchPopularMoviesDesc: pageNum => dispatch(fetchPopularMoviesDesc(pageNum)),
 })
 
 export default connect(
