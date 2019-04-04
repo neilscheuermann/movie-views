@@ -4,18 +4,22 @@ import { fetchDummyData, fetchPopularMoviesDesc } from '../store/popularMovies'
 import { popularMoviesResults } from '../testMovieData'
 import MovieInfo from './MovieInfo'
 import Loading from './Loading'
+import Pagination from './Pagination'
 
 class PopularMovies extends Component {
   componentDidMount = () => {
     const { pageNum } = this.props.match.params
-    console.log(pageNum)
     this.props.fetchPopularMoviesDesc(pageNum)
+
+    // TODO: Component doesn't seem to remount when using Links in PageNumbers component. Work on a fix for this.
 
     // // Fetches dummy data when there's no internet.
     // this.props.fetchDummyData(popularMoviesResults)
   }
 
   render() {
+    const { pageNum } = this.props.match.params
+
     return (
       <div>
         <header>
@@ -28,6 +32,7 @@ class PopularMovies extends Component {
         ) : (
           <Loading />
         )}
+        <Pagination pageNum={pageNum} />
       </div>
     )
   }

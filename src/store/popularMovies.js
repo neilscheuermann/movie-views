@@ -23,7 +23,6 @@ export const fetchPopularMoviesDesc = pageNum => {
       url: `https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&page=${pageNum}&sort_by=popularity.desc`,
     })
       .then(({ data }) => {
-        console.log(data)
         dispatch(gotPopularMoviesDesc(data.results))
       })
       .catch(error => console.error(error))
