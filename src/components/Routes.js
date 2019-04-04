@@ -5,13 +5,19 @@ import PopularMovies from './PopularMovies'
 
 const Routes = () => {
   return (
-    <BrowserRouter>
-      <Switch>
-        <Route exact path="/" component={WelcomePage} />
-        <Route exact path="/popular/desc/:pageNum" component={PopularMovies} />
-        <Route render={() => <Redirect to="/" />} />
-      </Switch>
-    </BrowserRouter>
+    <div className="main-content">
+      <BrowserRouter>
+        <Switch>
+          <Route exact path="/" component={WelcomePage} />
+          <Route
+            exact
+            path="/popular/desc/:pageNum"
+            component={PopularMovies}
+          />
+          <Route render={() => <Redirect to="/" />} />
+        </Switch>
+      </BrowserRouter>
+    </div>
   )
 }
 
