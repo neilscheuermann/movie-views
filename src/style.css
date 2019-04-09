@@ -13,6 +13,58 @@ code {
     monospace;
 }
 
+.navbar {
+  height: 70px;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #081c24;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  box-sizing: border-box;
+  z-index: 90;
+}
+
+.navbar h1 {
+  color: white;
+}
+
+.navbar h2 {
+  color: white;
+}
+
+.navbar-right {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.navbar-right-items {
+  margin: 0 20px;
+}
+
+.home-btn:hover {
+  color: pink;
+  /* Cursor doesn't seem to be working. */
+  cursor: pointer;
+}
+
+.main-content {
+  padding-top: 70px;
+}
+
+.footer {
+  display: flex;
+  justify-content: flex-end;
+  background-color: #cccccc;
+}
+
+.footer p {
+  margin-right: 20px;
+}
+
 .pagination-container {
   display: flex;
   justify-content: center;
@@ -49,4 +101,10 @@ code {
 .pagination-child:hover:not(.active) {
   background-color: #ddd;
   border-radius: 5px;
+}
+
+button {
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-size: 1em;
 }
