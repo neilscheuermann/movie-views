@@ -13,6 +13,18 @@ code {
     monospace;
 }
 
+/* Sticky footer */
+.app-content {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+.page-content {
+  flex: 1;
+}
+/* --------- */
+
 .navbar {
   height: 70px;
   width: 100%;

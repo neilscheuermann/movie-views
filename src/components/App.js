@@ -6,9 +6,11 @@ import Footer from './Footer'
 class App extends Component {
   render() {
     return (
-      <div>
-        <NavBar />
-        <Routes />
+      <div className="app-content">
+        <div className="page-content">
+          <NavBar />
+          <Routes />
+        </div>
         <Footer />
       </div>
     )
