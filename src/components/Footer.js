@@ -3,9 +3,7 @@ import React from 'react'
 const Footer = () => {
   return (
     <footer className="footer">
-      <p>
-        <strong>(TMDb Icon)</strong>
-      </p>
+      <img src="/images/TMDb-logo.png" alt="TMDb Logo" />
       <p>
         This product uses the TMDb API but is not endorsed or certified by TMDb.
       </p>

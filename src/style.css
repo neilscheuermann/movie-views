@@ -70,11 +70,17 @@ code {
 .footer {
   display: flex;
   justify-content: flex-end;
+  align-items: center;
   background-color: #cccccc;
 }
 
 .footer p {
   margin-right: 20px;
+}
+
+.footer img {
+  height: 40px;
+  margin: 10px;
 }
 
 .pagination-container {
