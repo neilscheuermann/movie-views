@@ -8,7 +8,7 @@ const Routes = () => {
     <div className="main-content">
       <Switch>
         <Route exact path="/" component={WelcomePage} />
-        <Route exact path="/popular/desc/:pageNum" component={PopularMovies} />
+        <Route exact path="/popular/:pageNum" component={PopularMovies} />
         <Route render={() => <Redirect to="/" />} />
       </Switch>
     </div>

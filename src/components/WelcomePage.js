@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 
 class WelcomePage extends Component {
   popularMovies = () => {
-    this.props.history.push('/popular/desc/1')
+    this.props.history.push('/popular/1')
   }
 
   render() {
@@ -10,7 +10,8 @@ class WelcomePage extends Component {
       <div>
         <header>
           <h1>Welcome to MovieViews!</h1>
-          <button onClick={this.popularMovies}>Popular Movies</button>
+          <button onClick={this.popularMovies}>Browse Movies</button>
+          <button onClick={this.popularMovies}>Browse TV Shows</button>
         </header>
       </div>
     )

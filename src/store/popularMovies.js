@@ -23,14 +23,14 @@ export const fetchPopularMoviesDesc = pageNum => {
       url: `https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&page=${pageNum}&sort_by=popularity.desc`,
     })
       .then(({ data }) => {
-        dispatch(gotPopularMoviesDesc(data.results))
+        dispatch(gotPopularMoviesDesc(data))
       })
       .catch(error => console.error(error))
   }
 }
 
 // REDUCER
-export const popularMoviesReducer = (state = [], action) => {
+export const popularMoviesReducer = (state = {}, action) => {
   switch (action.type) {
     case GOT_DUMMY_DATA:
       return action.popularMovies

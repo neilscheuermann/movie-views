@@ -4,6 +4,7 @@ import { fetchDummyData, fetchPopularMoviesDesc } from '../store/popularMovies'
 import MovieInfo from './MovieInfo'
 import Loading from './Loading'
 import Pagination from './Pagination'
+import MovieSortDropDown from './MovieSortDropDown'
 
 class PopularMovies extends Component {
   componentDidMount = () => {
@@ -17,9 +18,10 @@ class PopularMovies extends Component {
     return (
       <div>
         <header>
-          <h1>Popular Movies!</h1>
+          <h1>Popular Movies</h1>
         </header>
-        {this.props.popularMovies.length ? (
+        <MovieSortDropDown />
+        {this.props.popularMovies ? (
           this.props.popularMovies.map(movie => {
             return <MovieInfo key={movie.id} movie={movie} />
           })
@@ -36,7 +38,7 @@ class PopularMovies extends Component {
 }
 
 const mapStateToProps = state => ({
-  popularMovies: state.popularMovies,
+  popularMovies: state.popularMovies.results,
 })
 
 const mapDispatchToProps = dispatch => ({

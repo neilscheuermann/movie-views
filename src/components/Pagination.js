@@ -6,12 +6,12 @@ const Pagination = props => {
   const { pageNum, fetchPopularMoviesDesc } = props
 
   const clickPrev = () => {
-    props.history.push(`/popular/desc/${parseInt(pageNum) - 1}`)
+    props.history.push(`/popular/${parseInt(pageNum) - 1}`)
     fetchPopularMoviesDesc(parseInt(pageNum) - 1)
   }
 
   const clickNext = () => {
-    props.history.push(`/popular/desc/${parseInt(pageNum) + 1}`)
+    props.history.push(`/popular/${parseInt(pageNum) + 1}`)
     fetchPopularMoviesDesc(parseInt(pageNum) + 1)
   }
 

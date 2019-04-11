@@ -19,7 +19,7 @@ const PageNumbers = props => {
             : 'pagination-child'
         }
         key={idx}
-        to={`/popular/desc/${startNum + idx}`}
+        to={`/popular/${startNum + idx}`}
         onClick={fetchMovies}
       >
         <div> {startNum + idx} </div>
