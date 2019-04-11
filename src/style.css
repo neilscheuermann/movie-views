@@ -13,6 +13,18 @@ code {
     monospace;
 }
 
+/* Sticky footer */
+.app-content {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+.page-content {
+  flex: 1;
+}
+/* --------- */
+
 .navbar {
   height: 70px;
   width: 100%;
@@ -58,11 +70,17 @@ code {
 .footer {
   display: flex;
   justify-content: flex-end;
+  align-items: center;
   background-color: #cccccc;
 }
 
 .footer p {
   margin-right: 20px;
+}
+
+.footer img {
+  height: 40px;
+  margin: 10px;
 }
 
 .pagination-container {
