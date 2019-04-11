@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import { withRouter } from 'react-router-dom'
 import { fetchDummyData, fetchPopularMoviesDesc } from '../store/popularMovies'
 import MovieInfo from './MovieInfo'
 import Loading from './Loading'
 import Pagination from './Pagination'
-import MovieSortDropDown from './MovieSortDropDown'
 
 class PopularMovies extends Component {
   componentDidMount = () => {
@@ -17,10 +17,6 @@ class PopularMovies extends Component {
 
     return (
       <div>
-        <header>
-          <h1>Popular Movies</h1>
-        </header>
-        <MovieSortDropDown />
         {this.props.popularMovies ? (
           this.props.popularMovies.map(movie => {
             return <MovieInfo key={movie.id} movie={movie} />
@@ -46,7 +42,9 @@ const mapDispatchToProps = dispatch => ({
   fetchPopularMoviesDesc: pageNum => dispatch(fetchPopularMoviesDesc(pageNum)),
 })
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(PopularMovies)
+export default withRouter(
+  connect(
+    mapStateToProps,
+    mapDispatchToProps
+  )(PopularMovies)
+)
