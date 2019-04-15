@@ -1,7 +1,16 @@
 import React from 'react'
+import { withRouter } from 'react-router-dom'
 
-const MovieSorter = () => {
+const MovieSorter = props => {
   const movieCategory = React.createRef()
+  const { sortBy } = props.match.params
+  console.log('in drop down comp: ', sortBy)
+  const selectDefaultValue =
+    sortBy === 'popular'
+      ? 'popularity'
+      : sortBy === 'top-rated'
+      ? 'vote-average'
+      : 'release_date'
 
   const handleChange = () => {
     console.log(movieCategory.current.value)
@@ -13,7 +22,7 @@ const MovieSorter = () => {
       <select
         className="navbar-right-items"
         name="movies"
-        defaultValue=""
+        defaultValue={selectDefaultValue}
         ref={movieCategory}
         onChange={handleChange}
       >
@@ -24,4 +33,4 @@ const MovieSorter = () => {
     </div>
   )
 }
-export default MovieSorter
+export default withRouter(MovieSorter)
