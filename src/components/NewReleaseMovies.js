@@ -1,21 +1,21 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
-import { fetchPopularMoviesDesc } from '../store/popularMovies'
+import { fetchNewReleaseMoviesDesc } from '../store/newReleaseMovies'
 import { numberWithCommas } from '../helpers'
 import MovieInfo from './MovieInfo'
 import Loading from './Loading'
 import Pagination from './Pagination'
 
-class PopularMovies extends Component {
+class NewReleaseMovies extends Component {
   componentDidMount = () => {
     const { pageNum } = this.props.match.params
-    this.props.fetchPopularMoviesDesc(pageNum)
+    this.props.fetchNewReleaseMoviesDesc(pageNum)
   }
 
   render() {
     const { pageNum } = this.props.match.params
-    const { popularMovies, totalResults } = this.props
+    const { newReleaseMovies, totalResults } = this.props
     let formattedTotalResults
 
     if (totalResults) {
@@ -28,8 +28,8 @@ class PopularMovies extends Component {
           Showing {pageNum * 20 - 19}-{pageNum * 20} of {formattedTotalResults}{' '}
           results
         </p>
-        {popularMovies ? (
-          popularMovies.map(movie => {
+        {newReleaseMovies ? (
+          newReleaseMovies.map(movie => {
             return <MovieInfo key={movie.id} movie={movie} />
           })
         ) : (
@@ -37,7 +37,7 @@ class PopularMovies extends Component {
         )}
         <Pagination
           pageNum={pageNum}
-          fetchMovieData={this.props.fetchPopularMoviesDesc}
+          fetchMovieData={this.props.fetchNewReleaseMoviesDesc}
         />
       </div>
     )
@@ -45,17 +45,18 @@ class PopularMovies extends Component {
 }
 
 const mapStateToProps = state => ({
-  popularMovies: state.popularMovies.results,
-  totalResults: state.popularMovies.total_results,
+  newReleaseMovies: state.newReleaseMovies.results,
+  totalResults: state.newReleaseMovies.total_results,
 })
 
 const mapDispatchToProps = dispatch => ({
-  fetchPopularMoviesDesc: pageNum => dispatch(fetchPopularMoviesDesc(pageNum)),
+  fetchNewReleaseMoviesDesc: pageNum =>
+    dispatch(fetchNewReleaseMoviesDesc(pageNum)),
 })
 
 export default withRouter(
   connect(
     mapStateToProps,
     mapDispatchToProps
-  )(PopularMovies)
+  )(NewReleaseMovies)
 )

@@ -3,16 +3,17 @@ import PageNumbers from './PageNumbers'
 import { withRouter } from 'react-router-dom'
 
 const Pagination = props => {
-  const { pageNum, fetchPopularMoviesDesc } = props
+  const { pageNum, fetchMovieData } = props
+  const { sortBy } = props.match.params
 
   const clickPrev = () => {
-    props.history.push(`/popular/desc/${parseInt(pageNum) - 1}`)
-    fetchPopularMoviesDesc(parseInt(pageNum) - 1)
+    props.history.push(`/movies/${sortBy}/${parseInt(pageNum) - 1}`)
+    fetchMovieData(parseInt(pageNum) - 1)
   }
 
   const clickNext = () => {
-    props.history.push(`/popular/desc/${parseInt(pageNum) + 1}`)
-    fetchPopularMoviesDesc(parseInt(pageNum) + 1)
+    props.history.push(`/movies/${sortBy}/${parseInt(pageNum) + 1}`)
+    fetchMovieData(parseInt(pageNum) + 1)
   }
 
   return (
@@ -27,10 +28,7 @@ const Pagination = props => {
         >
           Previous
         </button>
-        <PageNumbers
-          pageNum={pageNum}
-          fetchPopularMoviesDesc={fetchPopularMoviesDesc}
-        />
+        <PageNumbers pageNum={pageNum} fetchMovieData={fetchMovieData} />
         <button
           className={
             pageNum >= Infinity

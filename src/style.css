@@ -46,15 +46,7 @@ code {
 
 .navbar h2 {
   color: white;
-}
-
-.navbar-right {
-  display: flex;
-  justify-content: space-evenly;
-}
-
-.navbar-right-items {
-  margin: 0 20px;
+  margin-right: 10px;
 }
 
 .home-btn:hover {
@@ -63,7 +55,7 @@ code {
   cursor: pointer;
 }
 
-.main-content {
+.movies-view {
   padding-top: 70px;
 }
 
