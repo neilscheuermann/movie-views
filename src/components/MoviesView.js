@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import MovieSortDropDown from './MovieSortDropDown'
 import PopularMovies from './PopularMovies'
 import TopRatedMovies from './TopRatedMovies'
+import NewReleaseMovies from './NewReleaseMovies'
 
 class MoviesView extends Component {
   state = {
@@ -42,6 +43,8 @@ class MoviesView extends Component {
           <PopularMovies />
         ) : sortBy === 'vote-average' ? (
           <TopRatedMovies />
+        ) : sortBy === 'release_date' ? (
+          <NewReleaseMovies />
         ) : null}
       </div>
     )
