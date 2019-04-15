@@ -118,3 +118,34 @@ button {
   border-radius: 6px;
   font-size: 1em;
 }
+
+.movie-info {
+  display: flex;
+  margin: 10px;
+  background-color: white;
+  border: 1px solid #eee;
+  border-radius: 10px;
+  box-shadow: 0 2px 2px #ccc;
+}
+
+.poster-img {
+  width: 140px;
+  margin: 10px;
+  border: 1px solid #eee;
+  border-radius: 5px;
+  box-shadow: 0 2px 2px #ccc;
+}
+
+.movie-info-card-right {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.scores-ratings {
+  display: flex;
+}
+
+.scores-ratings p {
+  margin-right: 10px;
+}
