@@ -15,7 +15,7 @@ export const fetchTopRatedMoviesDesc = pageNum => {
   return dispatch => {
     axios({
       type: 'GET',
-      url: `https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&page=${pageNum}&sort_by=vote-average.desc`,
+      url: `https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&page=${pageNum}&sort_by=vote_average.desc&vote_count.gte=100`,
     })
       .then(({ data }) => {
         dispatch(gotTopRatedMoviesDesc(data))
