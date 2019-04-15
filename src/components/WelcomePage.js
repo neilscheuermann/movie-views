@@ -2,7 +2,11 @@ import React, { Component } from 'react'
 
 class WelcomePage extends Component {
   popularMovies = () => {
-    this.props.history.push('/popular/1')
+    this.props.history.push('movies/popularity/1')
+  }
+
+  popularTVShows = () => {
+    console.log('still need to set up the TV show side.')
   }
 
   render() {
@@ -11,7 +15,7 @@ class WelcomePage extends Component {
         <header>
           <h1>Welcome to MovieViews!</h1>
           <button onClick={this.popularMovies}>Browse Movies</button>
-          <button onClick={this.popularMovies}>Browse TV Shows</button>
+          <button onClick={this.popularTVShows}>Browse TV Shows</button>
         </header>
       </div>
     )
